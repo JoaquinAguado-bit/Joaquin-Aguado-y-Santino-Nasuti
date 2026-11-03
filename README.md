@@ -121,6 +121,5 @@ Sesgo: +29
 
 | Corrida | Nota | Agujero que encontró | Qué cambiamos |
 |---|---|---|---|
-| 1 | <7,5> | Aplicá las tres reglas en orden a los casos 1 al 14 y contá VP, FN, FP y VN. ¿Te da la matriz que pusieron? Fijate especialmente en los casos 1 y 8. | modificamos la bitacora y la corregimos con los cambios que pediste |
-| 2 | <7> | ¿El sistema que describen en el README es el mismo que midieron? Corré neurona_mundial_v3.py y compará su salida con las matrices del README.
-Otros: ¿Con qué pesos y sesgo corre tu sistema, y dónde están escritos en el README? ¿De dónde sale el margen +0,06 del caso 19? | modificamos la primmer corrida, porque nos faltaba agregar que cambiamos y agregamos los pesos y el sesgo de la neurona en el sistema |
+| 1 | 7,5 | Aplicá las tres reglas en orden a los casos 1 al 14 y contá VP, FN, FP y VN. ¿Te da la matriz que pusieron? Fijate especialmente en los casos 1 y 8. | modificamos la bitacora y la corregimos con los cambios que pediste |
+| 2 | 7 | ¿El sistema que describen en el README es el mismo que midieron? Corré neurona_mundial_v3.py y compará su salida con las matrices del README. Otros: ¿Con qué pesos y sesgo corre tu sistema, y dónde están escritos en el README? ¿De dónde sale el margen +0,06 del caso 19? | modificamos la primmer corrida, porque nos faltaba agregar que cambiamos y agregamos los pesos y el sesgo de la neurona en el sistema |
