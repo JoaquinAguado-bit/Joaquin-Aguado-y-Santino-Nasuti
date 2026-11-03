@@ -27,6 +27,9 @@
 2. Si no, y tiene 24 o más jugadores en ligas top (de 26) → SÍ.
 3. En cualquier otro caso → NO.>
 
+Pesos: Ranking -1, jugadores_top +1
+Sesgo: +29
+
 **Variables que usa y por qué.** <Usa ranking FIFA y jugadores en ligas top: se conocen antes del Mundial y separaron bien los casos de entrenamiento. Descarta:
 - **Amistosos ganados:** no es lo que queremos predecir (es el indicador con que evalúan al técnico) y además no ayuda: las selecciones que pasan ganaron en promedio 2,8 amistosos y las que no, 5,7.
 - **Goles en eliminatorias:** no separó los casos (el caso 13, que no pasó, tiene 2,0, y el caso 8, que sí pasó, tiene 1,2) y depende de qué tan fácil fue la clasificatoria.>
@@ -118,4 +121,6 @@
 
 | Corrida | Nota | Agujero que encontró | Qué cambiamos |
 |---|---|---|---|
-| 1 | <7,5> | <Aplicá las tres reglas en orden a los casos 1 al 14 y contá VP, FN, FP y VN. ¿Te da la matriz que pusieron? Fijate especialmente en los casos 1 y 8.> | <modificamos la bitacora > |
+| 1 | <7,5> | Aplicá las tres reglas en orden a los casos 1 al 14 y contá VP, FN, FP y VN. ¿Te da la matriz que pusieron? Fijate especialmente en los casos 1 y 8. | modificamos la bitacora y la corregimos con los cambios que pediste |
+| 2 | <7> | ¿El sistema que describen en el README es el mismo que midieron? Corré neurona_mundial_v3.py y compará su salida con las matrices del README.
+Otros: ¿Con qué pesos y sesgo corre tu sistema, y dónde están escritos en el README? ¿De dónde sale el margen +0,06 del caso 19? | modificamos la primmer corrida, porque nos faltaba agregar que cambiamos y agregamos los pesos y el sesgo de la neurona en el sistema |
