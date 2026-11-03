@@ -48,24 +48,28 @@
 
 | | Predice SÍ | Predice NO |
 |---|---|---|
-| **Real SÍ** | VP = <> | FN = <> |
-| **Real NO** | FP = <> | VN = <> |
+| **Real SÍ** | VP = <4> | FN = <1> |
+| **Real NO** | FP = <1> | VN = <8> |
 
 **Prueba (casos 15–20)**
 
 | | Predice SÍ | Predice NO |
 |---|---|---|
-| **Real SÍ** | VP = <> | FN = <> |
-| **Real NO** | FP = <> | VN = <> |
+| **Real SÍ** | VP = <3> | FN = <0> |
+| **Real NO** | FP = <0> | VN = <3> |
 
 | Métrica | Entrenamiento | Prueba |
 |---|---|---|
-| Exactitud | <> | <> |
-| Precisión | <> | <> |
-| Sensibilidad | <> | <> |
-| Especificidad | <> | <> |
+| Exactitud | <85,7 % (12/14)> | <100 % (6/6)> |
+| Precisión | <80 % (4/5)> | <100 % (3/3)> |
+| Sensibilidad | <80 % (4/5)> | < 100 % (3/3)> |
+| Especificidad | <88,9 % (8/9)> | <100 % (3/3)> |
 
-**Entrenamiento contra prueba.** <¿Hay diferencia? ¿Por qué? ¿Sobreajuste o generalización?>
+**Entrenamiento contra prueba.** <Comparación contra la línea base ("responder siempre NO").** En entrenamiento, la línea base acierta 9 de 14 (64,3 %) pero con sensibilidad 0: no detecta ninguna selección que pasa. Su costo de errores (falso positivo = 2, falso negativo = 1) es 5, contra 3 del sistema. En prueba, la línea base acierta 3 de 6 (50 %), también con sensibilidad 0, y su costo es 3, contra 0 del sistema. El sistema le gana a la línea base en ambos conjuntos.
+
+**Entrenamiento contra prueba.** El sistema rinde mejor en prueba que en entrenamiento, lo cual es lo contrario de lo esperable. Con solo 6 casos de prueba lo atribuimos al azar, no a que el modelo generalice mejor: un solo error habría bajado la exactitud a 83 %. Los pesos no se ajustaron mirando la prueba. Además, el caso 19 quedó con un puntaje apenas positivo (+0,06), por lo que acertó con margen muy chico.
+
+**Limitaciones.** Datos inventados, 14 casos de entrenamiento y 6 de prueba: las métricas son ruidosas y no alcanzan para afirmar que el sistema funcionaría con selecciones reales.>
 
 ## 4. El error más caro
 
