@@ -48,15 +48,15 @@
 
 | | Predice SÍ | Predice NO |
 |---|---|---|
-| **Real SÍ** | VP = <4> | FN = <1> |
+| **Real SÍ** | VP = <3> | FN = <2> |
 | **Real NO** | FP = <1> | VN = <8> |
 
 **Prueba (casos 15–20)**
 
 | | Predice SÍ | Predice NO |
 |---|---|---|
-| **Real SÍ** | VP = <3> | FN = <0> |
-| **Real NO** | FP = <0> | VN = <3> |
+| **Real SÍ** | VP = <2> | FN = <1> |
+| **Real NO** | FP = <1> | VN = <2> |
 
 | Métrica | Entrenamiento | Prueba |
 |---|---|---|
