@@ -118,5 +118,4 @@
 
 | Corrida | Nota | Agujero que encontró | Qué cambiamos |
 |---|---|---|---|
-| 1 | <7,5> | <Aplicá las tres reglas en orden a los casos 1 al 14 y contá VP, FN, FP y VN. ¿Te da la matriz que pusieron? Fijate especialmente en los casos 1 y 8.
-Otros: ¿Qué optimizaron al subir el umbral, y es lo mismo que el objetivo de la ficha? ¿Cuál es la pista real: Neurona o Reglas?> | <> |
+| 1 | <7,5> | <Aplicá las tres reglas en orden a los casos 1 al 14 y contá VP, FN, FP y VN. ¿Te da la matriz que pusieron? Fijate especialmente en los casos 1 y 8.> | <modificamos la bitacora > |
