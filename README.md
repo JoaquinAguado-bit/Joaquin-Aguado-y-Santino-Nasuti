@@ -107,10 +107,16 @@
 
 | # | Qué le pedimos | Qué aceptamos | Qué rechazamos y por qué |
 |---|---|---|---|
-| 1 | <> | <> | <> |
+| 1 | < Encuadrar el caso (pregunta SÍ/NO, PEAS, objetivo y métrica)> | <Dejar afuera "amistosos ganados": es el indicador con que evalúan al técnico, no el objetivo, y además no ayuda a predecir. Usar la precisión como métrica principal.> | <Usar la exactitud como única métrica, porque hay que compararla contra una línea base trivial> |
+| 2 | Armar un sistema de reglas si-entonces con los casos 1 a 14 | Reglas con ranking ≤ 20 o 24 o más jugadores en ligas top → SÍ. | Umbral de 20 jugadores (daba 4 falsos positivos) y usar goles en eliminatorias (no separaba los casos). |
+| 3 | Armar una neurona (perceptrón) con los casos 1 a 14 | Pesos y sesgo elegidos probando combinaciones sobre el entrenamiento. | La regla clásica de aprendizaje del perceptrón: no converge porque los datos no se separan con una línea, y daba muy poca sensibilidad. |
+| 4 | Una segunda neurona, porque la primera daba precisión y especificidad en 100 % | Neurona v2: z = −1 × ranking + 7 × jugadores top − 100. Acepta 1 falso positivo en entrenamiento a cambio de subir la sensibilidad de 60 % a 80 %. | Ajustar los pesos mirando los casos 15 a 20 para forzar errores en la prueba: se usaría información de la prueba para decidir, y la prueba no sería una medición honesta. |
+| 5 | Calcular matrices, métricas y línea base, y escribir el código en Python | Código en Colab con la función neurona y las matrices de entrenamiento y prueba. | Pegar los números sin comprobarlos: los corrimos y verificamos que den igual que en el README. |
+| 6 | Redactar las secciones del README | Textos de PEAS, error más caro, línea base y riesgo. | Las versiones largas: pedimos textos más cortos, con una idea por celda. |
 
 **Corridas contra el evaluador**
 
 | Corrida | Nota | Agujero que encontró | Qué cambiamos |
 |---|---|---|---|
-| 1 | <> | <> | <> |
+| 1 | <7,5> | <Aplicá las tres reglas en orden a los casos 1 al 14 y contá VP, FN, FP y VN. ¿Te da la matriz que pusieron? Fijate especialmente en los casos 1 y 8.
+Otros: ¿Qué optimizaron al subir el umbral, y es lo mismo que el objetivo de la ficha? ¿Cuál es la pista real: Neurona o Reglas?> | <> |
