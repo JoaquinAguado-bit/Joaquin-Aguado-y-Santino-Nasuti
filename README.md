@@ -24,11 +24,16 @@
 
 ## 2. El sistema
 
-**Cómo decide.** <Neurona: pesos y sesgo. Reglas: la lista de reglas si‑entonces. Agente: la regla con la que elige la acción.>
+**Cómo decide.** <Pista Reglas, con tres reglas si-entonces que se aplican en orden:
+1. Si el ranking FIFA es 20 o mejor (puesto ≤ 20) → SÍ.
+2. Si no, y tiene 24 o más jugadores en ligas top (de 26) → SÍ.
+3. En cualquier otro caso → NO.>
 
-**Variables que usa y por qué.** <Cuáles usa, cuáles descarta y por qué.>
+**Variables que usa y por qué.** <Usa ranking FIFA y jugadores en ligas top: se conocen antes del Mundial y separaron bien los casos de entrenamiento. Descarta:
+- **Amistosos ganados:** no es lo que queremos predecir (es el indicador con que evalúan al técnico) y además no ayuda: las selecciones que pasan ganaron en promedio 2,8 amistosos y las que no, 5,7.
+- **Goles en eliminatorias:** no separó los casos (el caso 13, que no pasó, tiene 2,0, y el caso 8, que sí pasó, tiene 1,2) y depende de qué tan fácil fue la clasificatoria.>
 
-**Cómo se corre en vivo.** <Pasos concretos para resolver un caso nuevo: link al Colab, a la planilla o la cuenta a mano.>
+**Cómo se corre en vivo.** <Se toman el ranking y los jugadores en ligas top de la selección nueva y se aplican las reglas en orden. En Colab: `predecir(ranking, jugadores_top)` devuelve 1 (SÍ) o 0 (NO). También se puede hacer a mano con las tres reglas.>
 
 **Dos casos de ejemplo.**
 
