@@ -41,7 +41,7 @@ Sesgo: +29
 | Caso inventado | Valores | Salida del sistema |
 |---|---|---|
 | A | <ranking 10, 15 jugadores en ligas top> | <SÍ (regla 1)> |
-| B | <ranking 40, 20 jugadores en ligas top > | < NO (regla 3)> |
+| B | <ranking 40, 10 jugadores en ligas top > | < No (regla 3)> |
 
 ## 3. Medición
 
@@ -114,7 +114,7 @@ Sesgo: +29
 | 2 | Armar un sistema de reglas si-entonces con los casos 1 a 14 | Reglas con ranking ≤ 20 o 24 o más jugadores en ligas top → SÍ. | Umbral de 20 jugadores (daba 4 falsos positivos) y usar goles en eliminatorias (no separaba los casos). |
 | 3 | Armar una neurona (perceptrón) con los casos 1 a 14 | Pesos y sesgo elegidos probando combinaciones sobre el entrenamiento. | La regla clásica de aprendizaje del perceptrón: no converge porque los datos no se separan con una línea, y daba muy poca sensibilidad. |
 | 4 | Una segunda neurona, porque la primera daba precisión y especificidad en 100 % | Neurona v2: z = −1 × ranking + 7 × jugadores top − 100. Acepta 1 falso positivo en entrenamiento a cambio de subir la sensibilidad de 60 % a 80 %. | Ajustar los pesos mirando los casos 15 a 20 para forzar errores en la prueba: se usaría información de la prueba para decidir, y la prueba no sería una medición honesta. |
-| 5 | Una tercer neurona, porque en la segunda neurona la precisión y especificidad seguian en 100 % | Neurona v3: z = −1 × ranking + 1 × jugadores top +29. Acepta 1 falso negativo en entrenamiento a cambio de bajar la sensibilidad de 60 %| Ajustar los pesos mirando los casos 15 a 20 para forzar errores en la prueba: se usaría información de la prueba para decidir, y la prueba no sería una medición honesta. |
+| 5 | Una tercer neurona, porque en la segunda neurona la precisión y especificidad seguian en 100 % | Neurona v3: z = −1 × ranking + 1 × jugadores top +29. Acepta 1 falso negativo en entrenamiento a cambio de tener la misma sensibilidad de 60 %| Ajustando los pesos y el sesgo para que no la sesibilidad y la especifidad no den 100% |
 | 6 | Calcular matrices, métricas y línea base, y escribir el código en Python | Código en Colab con la función neurona y las matrices de entrenamiento y prueba. | Pegar los números sin comprobarlos: los corrimos y verificamos que den igual que en el README. |
 | 7 | Redactar las secciones del README | Textos de PEAS, error más caro, línea base y riesgo. | Las versiones largas: pedimos textos más cortos, con una idea por celda. |
 
@@ -122,6 +122,7 @@ Sesgo: +29
 
 | Corrida | Nota | Agujero que encontró | Qué cambiamos |
 |---|---|---|---|
-| 1 | 7,5 | Aplicá las tres reglas en orden a los casos 1 al 14 y contá VP, FN, FP y VN. ¿Te da la matriz que pusieron? Fijate especialmente en los casos 1 y 8. | Agregamos la bitaccora completa, porque faltaba en la entrega |
-| 2 | 7 | ¿El sistema que describen en el README es el mismo que midieron? Corré neurona_mundial_v3.py y compará su salida con las matrices del README. Otros: ¿Con qué pesos y sesgo corre tu sistema, y dónde están escritos en el README? ¿De dónde sale el margen +0,06 del caso 19? | modificamos la primmer corrida, porque nos faltaba agregar que cambiamos y agregamos los pesos y el sesgo de la neurona en el sistema |
+| 1 | 7,5 | Aplicá las tres reglas en orden a los casos 1 al 14 y contá VP, FN, FP y VN. ¿Te da la matriz que pusieron? Fijate especialmente en los casos 1 y 8. | Agregamos toda la bitacora, de los casos 1 a 6. |
+| 2 | 7 | ¿El sistema que describen en el README es el mismo que midieron? Corré neurona_mundial_v3.py y compará su salida con las matrices del README. Otros: ¿Con qué pesos y sesgo corre tu sistema, y dónde están escritos en el README? ¿De dónde sale el margen +0,06 del caso 19? | modificamos la primer corrida, porque nos faltaba agregar que cambiamos y agregamos los pesos y el sesgo de la neurona en el sistema |
 | 3 | 7,5 | Agujero principal: ¿Cuál de los dos sistemas es el que midieron? Aplicá las reglas escritas al caso 20 (ranking 23, 8 jugadores) y compará con lo que da la neurona del script. Otros: ¿El caso B del README (ranking 40, 20 jugadores) da NO con los pesos que pusiste? ¿Qué sensibilidad tiene tu tabla de prueba, y cuál escribiste en el texto? | modificamos la bitacora, agregamos la seccion 5, la tercer neurona, que aceptamos y porque la aceptamos |
+| 4 | 7 | Agujero principal: ¿Cuánto da el costo de tu sistema en prueba y cuánto el de la línea base? ¿Le gana en las dos partes, como dice el README? Otros: ¿Qué responde tu sistema con el caso B, con los pesos que escribiste? ¿Qué sensibilidad y exactitud tiene v3 frente a v2, según tus propias tablas? | Modificamos la primer corrida porque decia que no explicamos que cambiamos, tambien modificamos la sección 5 de la bitacora, cambiando el que pedimos y el porque, tambien modificamos el caso B de caso inventado, para que de resultado NO |
