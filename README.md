@@ -69,22 +69,35 @@
 
 ## 4. El error más caro
 
-<¿Es peor el falso positivo o el falso negativo en su problema? ¿Por qué, según la ficha? ¿Qué cambiaron en el sistema para cometer menos ese error?>
+<**El falso positivo es peor.** Según la ficha, es apostar a que pasa una selección que queda afuera. El falso negativo, en cambio, es subestimar a una selección que sí pasa. Equivocarse apostando cuesta más que quedarse corto.
+
+**Qué cambiamos para cometer menos falsos positivos.**
+- El sistema responde NO por defecto y solo dice SÍ cuando hay evidencia fuerte.
+- Subimos el umbral de jugadores en ligas top de 20 a 24. Con 20 aparecían 4 falsos positivos en entrenamiento (casos 2, 3, 11 y 13). Con 24 quedaron en 0.
+- El costo fue perder el caso 8 (ranking 57, 23 jugadores, SÍ), que ahora es 1 falso negativo. Lo aceptamos a cambio de eliminar los falsos positivos.>
 
 ## 5. ¿Comparado contra qué?
 
-**Línea base trivial.** <Qué resultado saca un sistema que responde siempre lo mismo, y cómo se compara el suyo.>
+**Línea base trivial.** <Un sistema que responde siempre NO (lo más frecuente en entrenamiento) saca 9/14 = 64,3 % de exactitud en entrenamiento y 3/6 = 50 % en prueba, pero no detecta ninguna selección que pasa (sensibilidad 0 %). Nuestro sistema saca 92,9 % en entrenamiento y 100 % en prueba, y además detecta los SÍ (sensibilidad 80 % y 100 %). Supera a la línea base en las dos partes.>
 
 | Checklist (Clase 6) | Respuesta |
 |---|---|
-| ¿Qué datos? | <> |
-| ¿Qué métrica? | <> |
-| ¿Comparado contra qué? | <> |
-| ¿Quién lo midió? | <> |
+| ¿Qué datos? | <Ficha de 20 selecciones inventadas: 14 de entrenamiento (casos 1 a 14) y 6 de prueba (casos 15 a 20).> |
+| ¿Qué métrica? | <Precisión como principal, junto con exactitud, sensibilidad y especificidad.> |
+| ¿Comparado contra qué? | <Contra un sistema que responde siempre NO> |
+| ¿Quién lo midió? | <El grupo, en Colab con los datos de la ficha, y el evaluador de la cátedra. |> |
 
 ## 6. Riesgo: el camino completo
 
-<Datos → modelo → decisión → consecuencia aplicado a su caso. Al menos un riesgo concreto.>
+<**Datos.** Son solo 20 selecciones inventadas, y el umbral de 24 jugadores en ligas top quedó justo por encima del máximo de los casos NO (23). Los datos de la ficha son pocos y el ajuste fue sobre ellos.
+
+**Modelo.** Las reglas pueden fallar con selecciones que no se parezcan a esos 20 casos. Por ejemplo, una selección con ranking 25 y 23 jugadores en ligas top sería NO, aunque podría pasar (es el mismo error del caso 8). Además, el 100 % en prueba se apoya en solo 6 casos, por lo que no garantiza que funcione igual con casos nuevos.
+
+**Decisión.** Si el sistema dice SÍ y la selección queda afuera (falso positivo), el analista apuesta por ella.
+
+**Consecuencia.** Se pierde la apuesta o se toma una mala decisión en la federación. Por eso el sistema responde NO ante la duda y exige mucho para decir SÍ: acepta perder algunos SÍ reales (falsos negativos) para evitar el error más caro.
+
+**Riesgo concreto: amistosos ganados.** Si alguien agregara esa variable al sistema, los equipos que ganan amistosos sin presión parecerían mejores de lo que son, y sería más fácil caer en falsos positivos. Además, estaría optimizando lo que mide al técnico y no lo que importa, que es pasar la fase de grupos. Por eso la dejamos afuera.>
 
 ## 7. Bitácora
 
