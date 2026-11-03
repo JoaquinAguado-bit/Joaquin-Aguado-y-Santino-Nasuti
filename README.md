@@ -11,16 +11,16 @@
 
 ## 1. Formulación y PEAS
 
-**La pregunta.** <Para cada caso, ¿…? SÍ significa: …>
+**La pregunta.** <Para cada seleccion, ¿supera la fase de grupos? SÍ significa: La seleccion pasa la fase grupos>
 
 | PEAS | Su sistema |
 |---|---|
-| Medida de rendimiento | <cómo se sabe si decidió bien> |
-| Entorno | <dónde y con qué decide> |
-| Actuadores | <qué hace con la decisión> |
-| Sensores | <qué datos recibe> |
+| Medida de rendimiento | <Costo total de errores sobre los casos de prueba (c_FP × FP + c_FN × FN, con c_FP = 2 y c_FN = 1), comparado contra la línea base "responder siempre NO". Se mide contra el resultado real de la fase de grupos. Se reportan también exactitud, precisión, sensibilidad y especificidad.> |
+| Entorno | < Selecciones que disputan un Mundial. El analista de la federación decide antes del torneo con la información disponible en ese momento. Parcialmente observable, estocástico y episódico (cada selección se evalúa por separado).> |
+| Actuadores | <Emite SÍ o NO para cada selección; el analista usa esa respuesta para decidir a qué selecciones apostar.> |
+| Sensores | <Ranking FIFA (puesto), goles a favor en eliminatorias (por partido) y jugadores en ligas top (de 26). No usa amistosos ganados.> |
 
-**Objetivo y métrica.** <Qué es lo que de verdad importa en su problema y con qué métrica lo van a medir. ¿Son lo mismo?>
+**Objetivo y métrica.** <No son lo mismo. El objetivo es que el analista apueste solo a las selecciones que realmente pasan la fase de grupos y no subestime a las que sí pasan. La métrica es la forma de medir cuánto se logra: el costo de los errores (un falso positivo cuesta el doble que un falso negativo) y la comparación contra decir siempre NO, que acierta bastante en exactitud pero tiene sensibilidad cero. Los amistosos ganados no se usan como entrada ni como indicador de éxito: es el indicador con el que la federación evalúa al técnico, no si la selección pasa.>
 
 ## 2. El sistema
 
