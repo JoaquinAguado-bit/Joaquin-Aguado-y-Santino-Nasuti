@@ -58,10 +58,10 @@
 
 | Métrica | Entrenamiento | Prueba |
 |---|---|---|
-| Exactitud | <85,7 % (12/14)> | <100 % (6/6)> |
-| Precisión | <80 % (4/5)> | <100 % (3/3)> |
-| Sensibilidad | <80 % (4/5)> | < 100 % (3/3)> |
-| Especificidad | <88,9 % (8/9)> | <100 % (3/3)> |
+| Exactitud | <78.6%)> | <66.7%> |
+| Precisión | <75.0%> | <66.7%> |
+| Sensibilidad | <60.0%> | <66.7%> |
+| Especificidad | <88.9%> | <66.7%> |
 
 **Entrenamiento contra prueba.** <Comparación contra la línea base ("responder siempre NO").** En entrenamiento, la línea base acierta 9 de 14 (64,3 %) pero con sensibilidad 0: no detecta ninguna selección que pasa. Su costo de errores (falso positivo = 2, falso negativo = 1) es 5, contra 3 del sistema. En prueba, la línea base acierta 3 de 6 (50 %), también con sensibilidad 0, y su costo es 3, contra 0 del sistema. El sistema le gana a la línea base en ambos conjuntos.
 
