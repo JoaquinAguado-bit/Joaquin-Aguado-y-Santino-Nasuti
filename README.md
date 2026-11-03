@@ -39,8 +39,8 @@
 
 | Caso inventado | Valores | Salida del sistema |
 |---|---|---|
-| A | <…> | <SÍ/NO> |
-| B | <…> | <SÍ/NO> |
+| A | <ranking 10, 15 jugadores en ligas top> | <SÍ (regla 1)> |
+| B | <ranking 40, 20 jugadores en ligas top > | < NO (regla 3)> |
 
 ## 3. Medición
 
